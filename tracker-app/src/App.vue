@@ -8,6 +8,14 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+
+  }
+}
+</script>
+
 <style lang="less">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
