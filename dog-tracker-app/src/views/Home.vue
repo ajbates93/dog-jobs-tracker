@@ -40,13 +40,13 @@ const CURRENT_USER = gql`query {
 
 export default {
   name: 'Home',
+  mounted() {
+    this.$store.dispatch('updateShowBanner', true)
+  },
   data() {
     return {
       currentUser: { username: 'test' },
     }
-  },
-  computed: {
-
   },
   apollo: {
     currentUser: CURRENT_USER

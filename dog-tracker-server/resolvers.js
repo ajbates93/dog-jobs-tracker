@@ -14,6 +14,9 @@ const dateScalar = new GraphQLScalarType({
 
 const resolvers = {
   Query: {
+    allPosts: (parent, args) => {
+      return data.posts
+    },
     currentUser: (parent, args) => {
       let user = data.users.find( u => u.id === currentUserId );
       let posts = data.posts.filter( p => p.userId === currentUserId );

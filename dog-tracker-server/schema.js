@@ -2,6 +2,7 @@ import { gql } from 'apollo-server'
 
 const schema = gql(`
   type Query {
+    allPosts: [Post]
     currentUser: User
     postsByUser(userId: String!): [Post]
   }

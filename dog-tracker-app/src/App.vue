@@ -1,7 +1,7 @@
 <template>
   <div class="relative bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto">
-      <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+      <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:w-full lg:pb-28 xl:pb-32" :class="showBanner ? 'lg:max-w-2xl' : ''">
         <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           <polygon points="50,0 100,0 50,100 0,100" />
         </svg>
@@ -9,7 +9,7 @@
         <router-view/>
       </div>
     </div>
-    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+    <div v-if="showBanner" class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
       <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1632236542159-809925d85fc0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3870&q=80" alt="">
     </div>
   </div>
@@ -17,10 +17,14 @@
 
 <script>
 import Nav from './components/Nav.vue'
+import {mapState} from 'vuex'
 
 export default {
   data() {
 
+  },
+  computed: {
+    ...mapState(['showBanner'])
   },
   components: {
     Nav
