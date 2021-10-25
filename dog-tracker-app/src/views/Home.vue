@@ -8,6 +8,9 @@
       <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
         Keep track of when your dog has had a jab or flea/worm treatment, a weigh-in, or just something important that you need to keep in your diary.
       </p>
+      <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+        Hello, {{currentUser.fullName}}. Good to see you again.
+      </p>
       <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
         <div class="rounded-md shadow">
           <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
@@ -25,13 +28,28 @@
 </template>
 
 <script>
+import gql from 'graphql-tag'
+
+const CURRENT_USER = gql`query {
+  currentUser {
+    id
+    username
+    fullName
+  }
+}`
+
 export default {
   name: 'Home',
   data() {
-
+    return {
+      currentUser: { username: 'test' },
+    }
   },
   computed: {
 
+  },
+  apollo: {
+    currentUser: CURRENT_USER
   }
 }
 </script>
