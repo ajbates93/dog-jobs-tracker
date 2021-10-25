@@ -13,12 +13,14 @@ const schema = gql(`
     fullName: String
     dateOfBirth: Date
     posts: [Post]
+    avatarUrl: String
   }
 
   type Post {
     id: ID!
     content: String!
     date: Date!
+    frequency: String!
     userId: ID!
   }
 
