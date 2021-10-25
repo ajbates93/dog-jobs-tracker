@@ -1,4 +1,4 @@
-let data = {
+const data = {
     posts: [
         {
             id: 'abcd1',
@@ -43,4 +43,4 @@ let data = {
 
 const currentUserId = 'user-1'
 
-export default { data, currentUserId }
+export { data, currentUserId }
